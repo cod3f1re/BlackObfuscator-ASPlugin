@@ -53,7 +53,7 @@ public class ObfPlugin implements Plugin<Project> {
                     void execute(ApplicationVariant applicationVariant) {
                         File mappingFile = null
                         if (applicationVariant.buildType.minifyEnabled) {
-                            mappingFile = applicationVariant.mappingFile
+                            mappingFile = applicationVariant.mappingFileProvider.get().asFile
                         }
                         def buildType = upperCaseFirst(applicationVariant.buildType.name)
                         boolean empty = true
